@@ -1,0 +1,33 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// A moderation decision made after the send or edit reply changed a message's state, sent only to its author's open sockets. It carries the author's own clientMessageId so the client can match it to the message it sent.
+	struct ChatMessageModeratedV0
+	{
+		/// The chat message identifier.
+		std::string MessageId;
+
+		/// The chat channel identifier.
+		std::string ChannelId;
+
+		/// The parent message identifier when this message is a reply.
+		std::optional<std::string> ParentMessageId;
+
+		/// The client-generated identifier used for submission correlation.
+		std::optional<std::string> ClientMessageId;
+
+		/// The server-side safety state governing message visibility.
+		std::string ModerationState;
+	};
+
+}

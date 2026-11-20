@@ -1,0 +1,54 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// The signed manifest a client verifies before accepting a rotatable embedded policy bundle.
+	struct SafetyBundleManifestV1
+	{
+		/// Shared contract schema name.
+		std::optional<std::string> SchemaName;
+
+		/// Shared contract schema version.
+		std::optional<std::string> SchemaVersion;
+
+		/// SHA-256 digest of the exact bundle bytes this manifest signs, as sha256: followed by lowercase hex.
+		std::string BundleSha256;
+
+		/// Size of the bundle in bytes.
+		int BundleBytes;
+
+		/// Kind of artifact the bundle contains.
+		std::optional<std::string> BundleKind;
+
+		/// Embedded engine ABI version this bundle is built for.
+		int AbiVersion;
+
+		/// Engine version the bundle was produced with.
+		std::string EngineVersion;
+
+		/// Half-open engine version range this bundle may be evaluated by, as >=lower <upper.
+		std::string CompatibleEngineVersions;
+
+		/// When this manifest was signed.
+		std::string IssuedAt;
+
+		/// When this bundle stops being acceptable; a client refuses the bundle from this instant.
+		std::string ExpiresAt;
+
+		/// Identifier of the signing key, as the truncated SHA-256 digest of its DER-encoded SPKI public key.
+		std::string KeyId;
+
+		/// Ed25519 signature over the canonical manifest without this property, as base64.
+		std::string Signature;
+	};
+
+}

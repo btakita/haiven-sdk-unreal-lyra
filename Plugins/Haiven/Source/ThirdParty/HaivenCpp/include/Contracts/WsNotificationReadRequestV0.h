@@ -1,0 +1,21 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// The payload a client sends on a notifications.read frame, marking a whole category read.
+	struct WsNotificationReadRequestV0
+	{
+		/// The notification category to mark read, one of chat, user or general.
+		std::string Kind;
+	};
+
+}

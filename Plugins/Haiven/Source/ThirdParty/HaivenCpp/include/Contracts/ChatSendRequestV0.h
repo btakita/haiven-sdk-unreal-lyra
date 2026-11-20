@@ -1,0 +1,30 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// A request to submit a chat message.
+	struct ChatSendRequestV0
+	{
+		/// The chat channel identifier.
+		std::string ChannelId;
+
+		/// The parent message identifier when this message is a reply.
+		std::optional<std::string> ParentMessageId;
+
+		/// The sender's own id for this message (at most 128 characters). It is the deduplication key: a resend with the same id (for example after a reconnect) returns the message already sent instead of a duplicate. The same id for a different channel or parent or content is client_message_id_conflict.
+		std::optional<std::string> ClientMessageId;
+
+		/// The user-authored message content.
+		std::string Content;
+	};
+
+}

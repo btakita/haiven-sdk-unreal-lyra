@@ -1,0 +1,30 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// A request to update a notification's visible fields.
+	struct NotificationUpdateRequestV0
+	{
+		/// The stable identifier of this value.
+		std::string Id;
+
+		/// The notification title shown to the user.
+		std::string Title;
+
+		/// The notification body shown to the user.
+		std::string Body;
+
+		/// Opaque application data encoded for JSON transport.
+		std::optional<std::string> Data;
+	};
+
+}

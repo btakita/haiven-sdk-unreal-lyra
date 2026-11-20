@@ -1,0 +1,27 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// A user's typing state in a chat channel.
+	struct ChatTypingV0
+	{
+		/// The chat channel identifier.
+		std::string ChannelId;
+
+		/// The user identifier.
+		std::optional<std::string> UserId;
+
+		/// Whether the user is currently typing in the channel.
+		bool IsTyping;
+	};
+
+}

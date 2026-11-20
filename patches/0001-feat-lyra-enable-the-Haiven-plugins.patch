@@ -1,0 +1,35 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Haiven SDK <sdk-promotion@users.noreply.github.com>
+Date: Sun, 15 Nov 2026 12:00:00 +0000
+Subject: [PATCH] feat(lyra): enable the Haiven plugins
+
+Adds Haiven, HaivenLyraDemo and HaivenLyraInventory to the project's
+Plugins list, after the stock entries and in the descriptor's own CRLF
+lines. This is the one change a Lyra project needs to load the plugins.
+---
+ Lyra.uproject | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/Lyra.uproject b/Lyra.uproject
+index 52b71e0..8557a5b 100644
+--- a/Lyra.uproject
++++ b/Lyra.uproject
+@@ -385,6 +385,18 @@
+ 		{
+ 			"Name": "PlatformDLC",
+ 			"Enabled": true
++		},
++		{
++			"Name": "Haiven",
++			"Enabled": true
++		},
++		{
++			"Name": "HaivenLyraDemo",
++			"Enabled": true
++		},
++		{
++			"Name": "HaivenLyraInventory",
++			"Enabled": true
+ 		}
+ 	],
+ 	"EpicSampleNameHash": "451731683"

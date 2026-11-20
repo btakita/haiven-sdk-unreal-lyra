@@ -1,0 +1,48 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// A stored notification belonging to the authenticated user.
+	struct WsNotificationV0
+	{
+		/// The notification's server-assigned identifier.
+		std::string Id;
+
+		/// The user the notification belongs to.
+		std::string UserId;
+
+		/// The notification's category, one of chat, user or general.
+		std::string Kind;
+
+		/// The notification's sub-category within its kind.
+		std::string Variety;
+
+		/// The notification's headline, or null when it has none.
+		std::optional<std::string> Title;
+
+		/// The notification's message text, or null when it has none.
+		std::optional<std::string> Body;
+
+		/// The notification's structured detail as base64-encoded JSON, or null when it has none.
+		std::optional<std::string> Data;
+
+		/// Whether the user has read the notification, or null when it was never set.
+		std::optional<bool> IsRead;
+
+		/// When the notification was written, or null when it was never set.
+		std::optional<std::string> CreatedAt;
+
+		/// When the notification was last changed, or null when it was never set.
+		std::optional<std::string> UpdatedAt;
+	};
+
+}

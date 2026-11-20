@@ -1,0 +1,24 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// The payload a client sends on a chat.typing frame, reporting its own typing state.
+	struct WsChatTypingRequestV0
+	{
+		/// The channel the typing state applies to.
+		std::string ChannelId;
+
+		/// Whether the user is currently typing.
+		bool IsTyping;
+	};
+
+}

@@ -1,0 +1,30 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// The payload a client sends on a notifications.update frame, revising one notification.
+	struct WsNotificationUpdateRequestV0
+	{
+		/// The notification to revise.
+		std::string Id;
+
+		/// The replacement headline, omitted to leave it unchanged.
+		std::optional<std::string> Title;
+
+		/// The replacement message text, omitted to leave it unchanged.
+		std::optional<std::string> Body;
+
+		/// The replacement structured detail as raw JSON, omitted to leave it unchanged.
+		std::optional<std::string> Data;
+	};
+
+}

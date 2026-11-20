@@ -1,0 +1,36 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// The advisory result of an embedded policy evaluation, surfaced to the client before the server has decided.
+	struct LocalSafetyAssessmentV1
+	{
+		/// Advisory outcome of the local evaluation; never an authoritative allow.
+		std::optional<std::string> Outcome;
+
+		/// Severity the matched policy rule assigned to this content.
+		std::optional<std::string> EffectiveSeverity;
+
+		/// Identifier of the policy rule that produced this assessment.
+		std::string MatchedRuleId;
+
+		/// Whether the bundle's default rule produced this assessment because no specific rule matched.
+		bool DefaultRuleUsed;
+
+		/// SHA-256 digest of the policy bundle that produced this assessment, as lowercase hex.
+		std::string BundleSha256;
+
+		/// Version label of the policy bundle that produced this assessment.
+		std::string PolicyVersion;
+	};
+
+}

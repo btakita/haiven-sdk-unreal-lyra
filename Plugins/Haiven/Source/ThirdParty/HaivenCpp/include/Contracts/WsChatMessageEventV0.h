@@ -1,0 +1,42 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// The payload of a chat message event.
+	struct WsChatMessageEventV0
+	{
+		/// The channel the message belongs to.
+		std::string ChannelId;
+
+		/// The message's server-assigned identifier.
+		std::string Id;
+
+		/// The user who wrote the message.
+		std::optional<std::string> AuthorId;
+
+		/// The identifier the sending client assigned, echoed so it can reconcile its optimistic copy.
+		std::optional<std::string> ClientMessageId;
+
+		/// The message this one replies to, when it is a reply.
+		std::optional<std::string> ParentMessageId;
+
+		/// The message body.
+		std::optional<std::string> Content;
+
+		/// When the message was first written.
+		std::optional<std::string> CreatedAt;
+
+		/// When the message was last edited.
+		std::optional<std::string> UpdatedAt;
+	};
+
+}

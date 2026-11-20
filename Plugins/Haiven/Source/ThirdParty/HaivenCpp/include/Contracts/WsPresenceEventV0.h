@@ -1,0 +1,48 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	struct WsPresenceEventV0Status
+	{
+		/// The status emoji, or the empty string when there is none.
+		std::string Emoji;
+
+		/// The status text, or the empty string when there is none.
+		std::string Text;
+
+		/// When this status lapses, or null when it does not.
+		std::optional<std::string> ExpiresAt;
+	};
+
+	struct WsPresenceEventV0Availability
+	{
+		/// The availability state.
+		std::string State;
+
+		/// When this availability lapses, or null when it does not.
+		std::optional<std::string> ExpiresAt;
+	};
+
+	/// The payload of a presence update.
+	struct WsPresenceEventV0
+	{
+		/// The user whose presence changed.
+		std::string UserId;
+
+		/// Whether the user is reachable, and until when.
+		WsPresenceEventV0Availability Availability;
+
+		/// The user's self-set status.
+		WsPresenceEventV0Status Status;
+	};
+
+}

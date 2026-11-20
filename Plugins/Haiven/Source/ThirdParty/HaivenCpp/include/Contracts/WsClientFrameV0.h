@@ -1,0 +1,27 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// Every frame a client sends over the /v0/ws socket.
+	struct WsClientFrameV0
+	{
+		/// The frame discriminator, such as chat.send or ping. Clients must accept a type minted after they shipped rather than treating it as a protocol error.
+		std::string Type;
+
+		/// An identifier the client chooses to correlate this frame with the reply that answers it.
+		std::optional<std::string> RequestId;
+
+		/// The frame body, whose shape is determined by the type field.
+		std::optional<std::string> Payload;
+	};
+
+}

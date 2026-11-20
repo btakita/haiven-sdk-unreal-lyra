@@ -1,0 +1,36 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// The platform Message of the Day, sent once to a signed-in SDK connection right after auth.success while an admin-authored message is active. Web clients do not receive it.
+	struct MotdV0
+	{
+		/// The stable identifier of the message; a client that already showed it can skip it.
+		std::string Id;
+
+		/// A short heading for the message; absent when it has none.
+		std::optional<std::string> Title;
+
+		/// The message text to show the player.
+		std::string Body;
+
+		/// An absolute https link for the message's call to action; absent when it has none.
+		std::optional<std::string> Url;
+
+		/// When the message started being shown.
+		std::string StartsAt;
+
+		/// When the message stops being shown; absent while it runs until an admin deactivates it.
+		std::optional<std::string> EndsAt;
+	};
+
+}

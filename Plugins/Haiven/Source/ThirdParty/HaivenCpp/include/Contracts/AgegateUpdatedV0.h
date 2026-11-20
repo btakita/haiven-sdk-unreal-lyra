@@ -1,0 +1,33 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// A change to the signed-in player's stored age-gate status, sent to their open sockets.
+	struct AgegateUpdatedV0
+	{
+		/// The stored age band: digital-minor, digital-youth or digital-adult. Absent when none is stored.
+		std::optional<std::string> Band;
+
+		/// How the stored age was established: unverified, pending, verified or failed.
+		std::string AssuranceState;
+
+		/// When the stored band was verified.
+		std::optional<std::string> VerifiedAt;
+
+		/// When a new parental consent may be requested, while a failed one locks the account.
+		std::optional<std::string> ConsentRetryAt;
+
+		/// What changed the status, such as challenge_passed or verification_failed. New values may be added.
+		std::string Reason;
+	};
+
+}

@@ -1,0 +1,48 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// A user notification.
+	struct NotificationV0
+	{
+		/// The stable identifier of this value.
+		std::string Id;
+
+		/// The user identifier.
+		std::string UserId;
+
+		/// The notification category used for grouping and read state.
+		std::string Kind;
+
+		/// The presentation variant used for the notification.
+		std::string Variety;
+
+		/// The notification title shown to the user.
+		std::string Title;
+
+		/// The notification body shown to the user.
+		std::string Body;
+
+		/// Opaque application data encoded for JSON transport.
+		std::string Data;
+
+		/// Whether the user has read the notification.
+		bool IsRead;
+
+		/// The time the value was created.
+		std::string CreatedAt;
+
+		/// The time the value was last updated.
+		std::string UpdatedAt;
+	};
+
+}

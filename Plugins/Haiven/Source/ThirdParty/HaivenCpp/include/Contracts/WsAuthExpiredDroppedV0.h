@@ -1,0 +1,40 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	struct WsAuthExpiredDroppedV0TypesItem
+	{
+		/// The WebSocket message type represented by this value.
+		/// Open vocabulary WsMessageTypeV0: recognised values are in the emitted vocabulary; never reject one that is not.
+		std::string Type;
+
+		/// The number of values represented by this object.
+		int Count;
+	};
+
+	/// Frames discarded after a WebSocket session expired.
+	struct WsAuthExpiredDroppedV0
+	{
+		/// The number of values represented by this object.
+		int Count;
+
+		/// Discarded frame counts grouped by WebSocket message type.
+		std::vector<WsAuthExpiredDroppedV0TypesItem> Types;
+
+		/// The request identifiers of discarded client frames when available.
+		std::vector<std::string> RequestIds;
+
+		/// Whether additional discarded-frame details were omitted.
+		bool Truncated;
+	};
+
+}

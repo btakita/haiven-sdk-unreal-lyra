@@ -1,0 +1,27 @@
+// Generated from the published Haiven contract schemas. Do not edit by hand.
+//
+// The nullability of a presence discriminant is deliberate and is NOT derived
+// from `required`.
+
+#pragma once
+
+#include <optional>
+#include <string>
+#include <vector>
+
+namespace Haiven
+{
+	/// A request to rebind a participation to the socket that sends it, within 30 seconds of losing the old one.
+	struct SessionResumeRequestV0
+	{
+		/// The participation to resume.
+		std::string ParticipationId;
+
+		/// The socket the participation was bound to before the drop.
+		std::string PreviousConnectionId;
+
+		/// The resume token sent with the create or join that admitted the participation.
+		std::string ResumeToken;
+	};
+
+}
