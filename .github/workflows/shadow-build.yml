@@ -54,9 +54,14 @@ jobs:
           SHADOW_REQUEST: ${{ inputs.request }}
           DISPLAY_ID: ${{ inputs.request_id }}
           # Runner labels for the jobs no standard runner can hold the engine for.
+          # Pull-request jobs use their own labels; the plan refuses a label
+          # that equals the other lane's, so the lanes never share a runner.
           SDK_SHADOW_RUNNER_LINUX_X64: ${{ vars.SDK_SHADOW_RUNNER_LINUX_X64 }}
           SDK_SHADOW_RUNNER_WINDOWS_X64: ${{ vars.SDK_SHADOW_RUNNER_WINDOWS_X64 }}
           SDK_SHADOW_RUNNER_MACOS: ${{ vars.SDK_SHADOW_RUNNER_MACOS }}
+          SDK_SHADOW_PR_RUNNER_LINUX_X64: ${{ vars.SDK_SHADOW_PR_RUNNER_LINUX_X64 }}
+          SDK_SHADOW_PR_RUNNER_WINDOWS_X64: ${{ vars.SDK_SHADOW_PR_RUNNER_WINDOWS_X64 }}
+          SDK_SHADOW_PR_RUNNER_MACOS: ${{ vars.SDK_SHADOW_PR_RUNNER_MACOS }}
         shell: bash
         run: |
           [[ "$DISPLAY_ID" == "$(jq -r .request_id <<< "$SHADOW_REQUEST")" ]]
